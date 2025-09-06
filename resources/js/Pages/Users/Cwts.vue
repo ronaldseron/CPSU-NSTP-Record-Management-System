@@ -54,7 +54,7 @@ const loadingProvinces = ref(false);
 const loadingCities = ref(false);
 const loadingBarangays = ref(false);
 
-// Example institution data - replace with your actual data
+// Institution data
 const heiNames = [
     { value: 'university1', label: 'University 1' },
     { value: 'university2', label: 'University 2' }

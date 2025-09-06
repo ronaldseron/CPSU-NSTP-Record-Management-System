@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StudentFormRegistrationController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -65,8 +66,6 @@ Route::prefix('users')->middleware(['auth', 'verified', 'role:user'])->group(fun
         return Inertia::render('Users/Lts');
     })->name('dashboard.users.lts');
 
-    // Submit Form Registration
-    Route::post('/form-registration', [\App\Http\Controllers\StudentFormRegistrationController::class, 'store']);
 });
 
 Route::middleware('auth')->group(function () {

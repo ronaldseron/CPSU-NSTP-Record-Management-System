@@ -3,27 +3,24 @@ import { reactive } from 'vue';
 export function useFormData(category) {
     return reactive({
         category: category,
-        schoolYear: '',
-        schoolId: '',
+        school_year: '',
+        school_id: '',
         course: '',
         
-        lastName: '',
-        firstName: '',
-        middleInitial: '',
-        extensionName: '',
+        last_name: '',
+        first_name: '',
+        middle_initial: '',
+        extension_name: '',
         gender: '',
-        cpNumber: '',
+        cp_number: '',
         
-        province: '',
-        city: '',
-        brgy: '',
-        provinceName: '',
-        cityName: '',
-        brgyName: '',
+        province_name: '',
+        city_name: '',
+        brgy_name: '',
         
-        heiName: '',
-        constitutionCode: '',
-        typeHeis: '',
-        programLevelCode: ''
+        hei_name: '',
+        constitution_code: '',
+        type_heis: '',
+        program_level_code: ''
     });
 }

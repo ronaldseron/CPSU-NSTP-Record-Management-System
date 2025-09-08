@@ -5,12 +5,12 @@ export function useFormValidation(formData, currentStep, validationErrors) {
 
         if (currentStep.value === 0) {
             // Validate School Information
-            if (!formData.schoolYear) {
-                validationErrors.schoolYear = 'School Year is required';
+            if (!formData.school_year) {
+                validationErrors.school_year = 'School Year is required';
                 isValid = false;
             }
-            if (!formData.schoolId) {
-                validationErrors.schoolId = 'School ID No. is required';
+            if (!formData.school_id) {
+                validationErrors.school_id = 'School ID No. is required';
                 isValid = false;
             }
             if (!formData.course) {
@@ -19,52 +19,52 @@ export function useFormValidation(formData, currentStep, validationErrors) {
             }
         } else if (currentStep.value === 1) {
             // Validate Personal Information
-            if (!formData.lastName) {
-                validationErrors.lastName = 'Last Name is required';
+            if (!formData.last_name) {
+                validationErrors.last_name = 'Last Name is required';
                 isValid = false;
             }
-            if (!formData.firstName) {
-                validationErrors.firstName = 'First Name is required';
+            if (!formData.first_name) {
+                validationErrors.first_name = 'First Name is required';
                 isValid = false;
             }
             if (!formData.gender) {
                 validationErrors.gender = 'Gender is required';
                 isValid = false;
             }
-            if (!formData.cpNumber) {
-                validationErrors.cpNumber = 'CP Number is required';
+            if (!formData.cp_number) {
+                validationErrors.cp_number = 'CP Number is required';
                 isValid = false;
             }
         } else if (currentStep.value === 2) {
             // Validate Address Information
-            if (!formData.province) {
-                validationErrors.province = 'Province is required';
+            if (!formData.province_name) {
+                validationErrors.province_name = 'Province is required';
                 isValid = false;
             }
-            if (!formData.city) {
-                validationErrors.city = 'City is required';
+            if (!formData.city_name) {
+                validationErrors.city_name = 'City is required';
                 isValid = false;
             }
-            if (!formData.brgy) {
-                validationErrors.brgy = 'Barangay is required';
+            if (!formData.brgy_name) {
+                validationErrors.brgy_name = 'Barangay is required';
                 isValid = false;
             }
         } else if (currentStep.value === 3) {
             // Validate Institution Information
-            if (!formData.heiName) {
-                validationErrors.heiName = 'HEI Name is required';
+            if (!formData.hei_name) {
+                validationErrors.hei_name = 'HEI Name is required';
                 isValid = false;
             }
-            if (!formData.constitutionCode) {
-                validationErrors.constitutionCode = 'Constitution Code is required';
+            if (!formData.constitution_code) {
+                validationErrors.constitution_code = 'Constitution Code is required';
                 isValid = false;
             }
-            if (!formData.typeHeis) {
-                validationErrors.typeHeis = 'Type of HEIS is required';
+            if (!formData.type_heis) {
+                validationErrors.type_heis = 'Type of HEIS is required';
                 isValid = false;
             }
-            if (!formData.programLevelCode) {
-                validationErrors.programLevelCode = 'Program Level Code is required';
+            if (!formData.program_level_code) {
+                validationErrors.program_level_code = 'Program Level Code is required';
                 isValid = false;
             }
         }

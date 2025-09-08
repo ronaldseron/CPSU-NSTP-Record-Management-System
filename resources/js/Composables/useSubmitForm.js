@@ -1,14 +1,29 @@
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
 export function useSubmitForm(validateCurrentStep, formData, validationErrors) {
     return async () => {
         if (validateCurrentStep()) {
             try {
-                const response = await fetch('/form-registration', {
+                await fetch('/sanctum/csrf-cookie', { credentials: 'include' });
+
+                // Get CSRF token from cookie
+                const csrfToken = getCookie('XSRF-TOKEN');
+
+                console.log(formData);
+
+                const response = await fetch('/api/form-registration', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Accept': 'application/json'
+                        'Accept': 'application/json',
+                        'X-XSRF-TOKEN': decodeURIComponent(csrfToken) // <-- Add this header
                     },
-                    body: JSON.stringify(formData)
+                    body: JSON.stringify(formData),
+                    credentials: 'include'
                 });
 
                 const data = await response.json();

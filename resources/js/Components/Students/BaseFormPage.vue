@@ -46,14 +46,11 @@ const handleProvinceChange = async (event) => {
     const provinceCode = event.target.value;
     if (provinceCode) {
         const selectedProvince = provinces.value.find(p => p.code === provinceCode);
-        formData.provinceName = selectedProvince ? selectedProvince.name : '';
+        formData.province_name = selectedProvince ? selectedProvince.name : '';
         await fetchCities(provinceCode);
     }
     
-    formData.city = '';
-    formData.cityName = '';
-    formData.brgy = '';
-    formData.brgyName = '';
+    formData.city_name = '';
 };
 
 // Handle city selection
@@ -61,12 +58,11 @@ const handleCityChange = async (event) => {
     const cityCode = event.target.value;
     if (cityCode) {
         const selectedCity = cities.value.find(c => c.code === cityCode);
-        formData.cityName = selectedCity ? selectedCity.name : '';
+        formData.city_name = selectedCity ? selectedCity.name : '';
         await fetchBarangays(cityCode);
     }
     
-    formData.brgy = '';
-    formData.brgyName = '';
+    formData.brgy_name = '';
 };
 
 // Handle barangay selection
@@ -74,7 +70,7 @@ const handleBarangayChange = (event) => {
     const barangayCode = event.target.value;
     if (barangayCode) {
         const selectedBarangay = barangays.value.find(b => b.code === barangayCode);
-        formData.brgyName = selectedBarangay ? selectedBarangay.name : '';
+        formData.brgy_name = selectedBarangay ? selectedBarangay.name : '';
     }
 };
 

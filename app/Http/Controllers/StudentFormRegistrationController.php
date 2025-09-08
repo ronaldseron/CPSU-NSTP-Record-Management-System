@@ -7,6 +7,7 @@ use App\Models\StudentFormRegistration;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class StudentFormRegistrationController extends Controller
 {
@@ -26,8 +27,12 @@ class StudentFormRegistrationController extends Controller
                 'data' => $registration
             ], 201);
         } catch (\Throwable $th) {
+        Log::error('Form registration failed', [
+            'message' => $th->getMessage(),
+            'trace' => $th->getTraceAsString(),
+        ]);
             return response()->json([
-                'message' => 'An error occured while processing your registration',
+                'message' => 'An error occurred while processing your registration',
                 'error' => config('app.debug') ? $th->getMessage() : 'Server error'
             ], 500);
         }

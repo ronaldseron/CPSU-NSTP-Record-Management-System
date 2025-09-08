@@ -12,19 +12,19 @@ defineProps({
         <!-- School information content remains the same -->
         <div class="space-y-4">
             <div>
-                <label for="schoolYear" class="block text-sm font-medium text-gray-700">School Year</label>
-                <input type="text" id="schoolYear" v-model="formData.schoolYear"
+                <label for="school_year" class="block text-sm font-medium text-gray-700">School Year</label>
+                <input type="text" id="school_year" v-model="formData.school_year"
                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                    placeholder="2023-2024" :class="{ 'border-red-500': validationErrors.schoolYear }">
-                <p v-if="validationErrors.schoolYear" class="mt-1 text-sm text-red-600">{{ validationErrors.schoolYear
+                    placeholder="2023-2024" :class="{ 'border-red-500': validationErrors.school_year }">
+                <p v-if="validationErrors.school_year" class="mt-1 text-sm text-red-600">{{ validationErrors.school_year
                     }}</p>
             </div>
             <div>
-                <label for="schoolId" class="block text-sm font-medium text-gray-700">School ID No.</label>
-                <input type="text" id="schoolId" v-model="formData.schoolId"
+                <label for="school_id" class="block text-sm font-medium text-gray-700">School ID No.</label>
+                <input type="text" id="school_id" v-model="formData.school_id"
                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                    :class="{ 'border-red-500': validationErrors.schoolId }">
-                <p v-if="validationErrors.schoolId" class="mt-1 text-sm text-red-600">{{ validationErrors.schoolId }}
+                    :class="{ 'border-red-500': validationErrors.school_id }">
+                <p v-if="validationErrors.school_id" class="mt-1 text-sm text-red-600">{{ validationErrors.school_id }}
                 </p>
             </div>
             <div>

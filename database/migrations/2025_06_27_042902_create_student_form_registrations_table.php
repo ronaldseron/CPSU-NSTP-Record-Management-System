@@ -30,11 +30,8 @@ return new class extends Migration
             $table->string('cp_number');
             
             // Address information
-            $table->string('province_code');
             $table->string('province_name');
-            $table->string('city_code');
             $table->string('city_name');
-            $table->string('brgy_code');
             $table->string('brgy_name');
             
             // Institution information

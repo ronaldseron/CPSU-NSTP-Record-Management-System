@@ -1,5 +1,11 @@
 import { reactive } from 'vue';
 
+export const addressSelection = reactive({
+    province: '',
+    city: '',
+    brgy: ''
+});
+
 export function useFormData(category) {
     return reactive({
         category: category,

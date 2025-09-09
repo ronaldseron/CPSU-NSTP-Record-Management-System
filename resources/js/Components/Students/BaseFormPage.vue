@@ -7,7 +7,7 @@ import { reactive, onMounted } from 'vue';
 import { heiNames, constitutionCodes, programLevelCodes } from '@/Constants/institutions';
 import { useAddress } from '@/Composables/useAddress';
 import { useFormValidation } from '@/Composables/useFormValidation';
-import { useFormData } from '@/Composables/useFormData';
+import { addressSelection, useFormData } from '@/Composables/useFormData';
 import { currentStep, useNextStep, prevStep } from '@/Composables/useStepProgress';
 import { useSubmitForm } from '@/Composables/useSubmitForm';
 
@@ -44,6 +44,7 @@ const submitForm = useSubmitForm(validateCurrentStep, formData, validationErrors
 // Handle province selection
 const handleProvinceChange = async (event) => {
     const provinceCode = event.target.value;
+    console.log(provinceCode);
     if (provinceCode) {
         const selectedProvince = provinces.value.find(p => p.code === provinceCode);
         formData.province_name = selectedProvince ? selectedProvince.name : '';
@@ -109,6 +110,7 @@ onMounted(async () => {
             :handleBarangayChange="handleBarangayChange"
             :nextStep="nextStep"
             :prevStep="prevStep"
+            :addressSelection="addressSelection"
         />
         <InstitutionStep
             v-if="currentStep === 3"

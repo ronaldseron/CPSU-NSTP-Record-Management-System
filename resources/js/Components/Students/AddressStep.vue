@@ -2,6 +2,7 @@
 defineProps({
     formData: Object,
     validationErrors: Object,
+    addressSelection: Object,
     provinces: Array,
     cities: Array,
     barangays: Array,
@@ -22,7 +23,7 @@ defineProps({
         <div class="space-y-4">
             <div>
                 <label for="province_name" class="block text-sm font-medium text-gray-700">Province</label>
-                <select id="province_name" v-model="formData.province_name" @change="handleProvinceChange"
+                <select id="province_name" v-model="addressSelection.province" @change="handleProvinceChange"
                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                     :class="{ 'border-red-500': validationErrors.province }" :disabled="loadingProvinces">
                     <option value="">Select Province</option>
@@ -36,7 +37,7 @@ defineProps({
             </div>
             <div>
                 <label for="city_name" class="block text-sm font-medium text-gray-700">City/Municipality</label>
-                <select id="city_name" v-model="formData.city_name" @change="handleCityChange"
+                <select id="city_name" v-model="addressSelection.city" @change="handleCityChange"
                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                     :class="{ 'border-red-500': validationErrors.city_name }" :disabled="!formData.province_name || loadingCities">
                     <option value="">Select City/Municipality</option>
@@ -49,7 +50,7 @@ defineProps({
             </div>
             <div>
                 <label for="brgy_name" class="block text-sm font-medium text-gray-700">Barangay</label>
-                <select id="brgy_name" v-model="formData.brgy_name" @change="handleBarangayChange"
+                <select id="brgy_name" v-model="addressSelection.brgy" @change="handleBarangayChange"
                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                     :class="{ 'border-red-500': validationErrors.brgy_name }" :disabled="!formData.city_name || loadingBarangays">
                     <option value="">Select Barangay</option>

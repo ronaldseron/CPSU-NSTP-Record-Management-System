@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\AllStudentsController;
+use App\Http\Controllers\Admin\CwtsController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\LtsController;
+use App\Http\Controllers\Admin\RotcController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentFormRegistrationController;
 use Illuminate\Foundation\Application;
@@ -19,29 +24,19 @@ Route::get('/', function () {
 // Dasboard Routes
 Route::prefix('dashboard')->middleware(['auth', 'verified', 'role:admin'])->group(function () {
     // Main dashboard page
-    Route::get('/', function() {
-        return Inertia::render('Admin/Dashboard');
-    })->name('dashboard');
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
     // Dashboard all students
-    Route::get('/students', function() {
-        return Inertia::render('Admin/Students');
-    })->name('dashboard.students');
+    Route::get('/students', [AllStudentsController::class, 'index'])->name('dashboard.students');
 
     // Dashboard ROTC
-    Route::get('/rotc', function() {
-        return Inertia::render('Admin/Rotc');
-    })->name('dashboard.rotc');
+    Route::get('/rotc', [RotcController::class, 'index'])->name('dashboard.rotc');
 
     // Dashboard CWTS
-    Route::get('/cwts', function() {
-        return Inertia::render('Admin/Cwts');
-    })->name('dashboard.cwts');
+    Route::get('/cwts', [CwtsController::class, 'index'])->name('dashboard.cwts');
 
     // Dashboard LTS
-    Route::get('/lts', function() {
-        return Inertia::render('Admin/Lts');
-    })->name('dashboard.lts');
+    Route::get('/lts', [LtsController::class, 'index'])->name('dashboard.lts');
 });
 
 // User Routes | Students Routes

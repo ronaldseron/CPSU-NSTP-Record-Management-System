@@ -1,6 +1,21 @@
 <script setup>
 import AdminLayout from '@/Layouts/AdminLayout.vue';
 import { Head } from '@inertiajs/vue3';
+
+defineProps([
+    'rotcMaleCount',
+    'rotcFemaleCount',
+    'rotcTotalCount',
+    'cwtsMaleCount',
+    'cwtsFemaleCount',
+    'cwtsTotalCount', 
+    'ltsMaleCount',
+    'ltsFemaleCount', 
+    'ltsTotalCount',
+    'totalMaleCount' ,
+    'totalFemaleCount',
+    'totalStudentsCount'
+])
 </script>
 
 <template>
@@ -27,7 +42,7 @@ import { Head } from '@inertiajs/vue3';
                             <!-- Card header with gradient background -->
                             <div class="bg-gradient-to-r from-red-600 to-red-700 p-4">
                                 <h1 class="text-xl font-bold text-white">ROTC</h1>
-                                <p class="text-blue-100 text-sm mt-1">Total Enrolled: 245</p>
+                                <p class="text-blue-100 text-sm mt-1">Total Enrolled: {{ rotcTotalCount }}</p>
                             </div>
                         
                             <!-- Card body -->
@@ -41,7 +56,7 @@ import { Head } from '@inertiajs/vue3';
                                         </div>
                                         <div>
                                             <p class="text-xs text-gray-500 font-medium">Male</p>
-                                            <p class="text-lg font-bold text-gray-800">1423</p>
+                                            <p class="text-lg font-bold text-gray-800">{{ rotcMaleCount }}</p>
                                         </div>
                                     </div>
                                     
@@ -52,7 +67,7 @@ import { Head } from '@inertiajs/vue3';
                                         </div>
                                         <div>
                                             <p class="text-xs text-gray-500 font-medium">Female</p>
-                                            <p class="text-lg font-bold text-gray-800">1033</p>
+                                            <p class="text-lg font-bold text-gray-800">{{ rotcFemaleCount }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -70,7 +85,7 @@ import { Head } from '@inertiajs/vue3';
                             <!-- Card header with gradient background -->
                             <div class="bg-gradient-to-r from-green-500 to-green-600 p-4">
                                 <h1 class="text-xl font-bold text-white">CWTS</h1>
-                                <p class="text-blue-100 text-sm mt-1">Total Enrolled: 245</p>
+                                <p class="text-blue-100 text-sm mt-1">Total Enrolled: {{ cwtsTotalCount }}</p>
                             </div>
                             
                             <!-- Card body -->
@@ -84,7 +99,7 @@ import { Head } from '@inertiajs/vue3';
                                         </div>
                                         <div>
                                             <p class="text-xs text-gray-500 font-medium">Male</p>
-                                            <p class="text-lg font-bold text-gray-800">142</p>
+                                            <p class="text-lg font-bold text-gray-800">{{ cwtsMaleCount }}</p>
                                         </div>
                                     </div>
                                     
@@ -95,7 +110,7 @@ import { Head } from '@inertiajs/vue3';
                                         </div>
                                         <div>
                                             <p class="text-xs text-gray-500 font-medium">Female</p>
-                                            <p class="text-lg font-bold text-gray-800">103</p>
+                                            <p class="text-lg font-bold text-gray-800">{{ cwtsFemaleCount }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -113,7 +128,7 @@ import { Head } from '@inertiajs/vue3';
                             <!-- Card header with gradient background -->
                             <div class="bg-gradient-to-r from-yellow-500 to-yellow-600 p-4">
                                 <h1 class="text-xl font-bold text-white">LTS</h1>
-                                <p class="text-blue-100 text-sm mt-1">Total Enrolled: 245</p>
+                                <p class="text-blue-100 text-sm mt-1">Total Enrolled: {{ ltsTotalCount }}</p>
                             </div>
                             
                             <!-- Card body -->
@@ -127,7 +142,7 @@ import { Head } from '@inertiajs/vue3';
                                         </div>
                                         <div>
                                             <p class="text-xs text-gray-500 font-medium">Male</p>
-                                            <p class="text-lg font-bold text-gray-800">142</p>
+                                            <p class="text-lg font-bold text-gray-800">{{ ltsMaleCount }}</p>
                                         </div>
                                     </div>
                                     
@@ -138,7 +153,7 @@ import { Head } from '@inertiajs/vue3';
                                         </div>
                                         <div>
                                             <p class="text-xs text-gray-500 font-medium">Female</p>
-                                            <p class="text-lg font-bold text-gray-800">103</p>
+                                            <p class="text-lg font-bold text-gray-800">{{ ltsFemaleCount }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -156,7 +171,7 @@ import { Head } from '@inertiajs/vue3';
                             <!-- Card header with gradient background -->
                             <div class="bg-gradient-to-r from-stone-500 to-stone-600 p-4">
                                 <h1 class="text-xl font-bold text-white">TOTAL</h1>
-                                <p class="text-blue-100 text-sm mt-1">Total Enrolled: 245</p>
+                                <p class="text-blue-100 text-sm mt-1">Total Enrolled: {{ totalStudentsCount }}</p>
                             </div>
                             
                             <!-- Card body -->
@@ -170,7 +185,7 @@ import { Head } from '@inertiajs/vue3';
                                         </div>
                                         <div>
                                             <p class="text-xs text-gray-500 font-medium">Male</p>
-                                            <p class="text-lg font-bold text-gray-800">142</p>
+                                            <p class="text-lg font-bold text-gray-800">{{ totalMaleCount }}</p>
                                         </div>
                                     </div>
                                     
@@ -181,7 +196,7 @@ import { Head } from '@inertiajs/vue3';
                                         </div>
                                         <div>
                                             <p class="text-xs text-gray-500 font-medium">Female</p>
-                                            <p class="text-lg font-bold text-gray-800">103</p>
+                                            <p class="text-lg font-bold text-gray-800">{{ totalFemaleCount }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -211,7 +226,7 @@ import { Head } from '@inertiajs/vue3';
                                     </div>
                                     <div>
                                         <p class="text-xs text-gray-500 font-medium">Male</p>
-                                        <p class="text-lg font-bold text-gray-800">1423</p>
+                                        <p class="text-lg font-bold text-gray-800">{{ totalMaleCount }}</p>
                                     </div>
                                 </div>
                                         
@@ -240,7 +255,7 @@ import { Head } from '@inertiajs/vue3';
                                     </div>
                                     <div>
                                         <p class="text-xs text-gray-500 font-medium">Female</p>
-                                        <p class="text-lg font-bold text-gray-800">1423</p>
+                                        <p class="text-lg font-bold text-gray-800">{{ totalFemaleCount }}</p>
                                     </div>
                                 </div>
                                         

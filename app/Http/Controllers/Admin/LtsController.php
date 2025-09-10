@@ -1,17 +1,26 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+use App\Models\StudentFormRegistration;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
-class AdminController extends Controller
+class LtsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $perPage = $request->input('per_page', 10);
+        $ltsStudents = StudentFormRegistration::where('category', 'LTS')->paginate($perPage);
+
+        return Inertia::render('Admin/Lts', [
+            'students' => $ltsStudents,
+            'perPage' => $perPage,
+        ]);
     }
 
     /**

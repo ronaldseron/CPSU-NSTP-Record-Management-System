@@ -14,7 +14,7 @@ class RotcController extends Controller
      */
     public function index(Request $request)
     {
-        $perPage = $request->input('per_page', 10);
+        $perPage = (int) $request->input('per_page', 10);
         $rotcStudents = StudentFormRegistration::where('category', 'ROTC')->paginate($perPage);
 
         return Inertia::render('Admin/Rotc', [

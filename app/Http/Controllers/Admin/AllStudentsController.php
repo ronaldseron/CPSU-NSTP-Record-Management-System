@@ -14,7 +14,7 @@ class AllStudentsController extends Controller
      */
     public function index(Request $request)
     {
-        $perPage = $request->input('per_page', 10);
+        $perPage = (int) $request->input('per_page', 10);
         $allStudents = StudentFormRegistration::paginate($perPage);
 
         return Inertia::render('Admin/Students', [
@@ -68,6 +68,13 @@ class AllStudentsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $student = StudentFormRegistration::findOrFail($id);
+            $student->delete();
+
+            return redirect()->back()->with(['success' => 'Student deleted successfully.'], 200);
+        } catch (\Throwable $th) {
+            return redirect()->back()->with(['error' => 'An error occurred while deleting the student.'], 500);
+        }
     }
 }

@@ -14,7 +14,7 @@ class LtsController extends Controller
      */
     public function index(Request $request)
     {
-        $perPage = $request->input('per_page', 10);
+        $perPage = (int) $request->input('per_page', 10);
         $ltsStudents = StudentFormRegistration::where('category', 'LTS')->paginate($perPage);
 
         return Inertia::render('Admin/Lts', [

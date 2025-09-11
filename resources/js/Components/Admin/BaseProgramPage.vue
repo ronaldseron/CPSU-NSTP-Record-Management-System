@@ -7,13 +7,22 @@ const props = defineProps({
     perPage: Number
 });
 
+const emit = defineEmits([
+    'delete'
+]);
+
 const perPage = ref(props.perPage || 10);
 
-function updatePerPage(event) {
-    router.get(route('dashboard.students'), { per_page: perPage.value }, {
+function updatePerPage() {
+    router.get(props.students.path, { per_page: perPage.value }, {
         preserveState: true,
         replace: true,
     });
+}
+
+function handleDelete(id) {
+    console.log('Emitting delete with ID:', id);
+    emit('delete', id);
 }
 </script>
 
@@ -99,6 +108,14 @@ function updatePerPage(event) {
                                 <td class="px-6 py-4 whitespace-nowrap text-sm">
                                     <button class="text-blue-500 hover:text-blue-700">
                                         <i class="bx bx-edit text-xl"></i>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="text-red-500 hover:text-red-700 ml-2"
+                                        title="Delete"
+                                        @click="handleDelete(student.id)"
+                                    >
+                                        <i class="bx bx-trash text-xl"></i>
                                     </button>
                                 </td>
                             </tr>

@@ -28,6 +28,7 @@ Route::prefix('dashboard')->middleware(['auth', 'verified', 'role:admin'])->grou
 
     // Dashboard all students
     Route::get('/students', [AllStudentsController::class, 'index'])->name('dashboard.students');
+    Route::delete('/students/{id}', [AllStudentsController::class, 'destroy']);
 
     // Dashboard ROTC
     Route::get('/rotc', [RotcController::class, 'index'])->name('dashboard.rotc');
